@@ -1,0 +1,18 @@
+build-backend = "setuptools.build_meta"
+requires = ["setuptools", "setuptools-scm"]
+
+[project]
+name = "emojify"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dynamic = ["version", "dependencies"]
+
+[project.scripts]
+emojify = "emojify.main:main"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools]
+packages = ["emojify"]
+
