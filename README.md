@@ -13,7 +13,6 @@
 <a href="" alt="version">
         <img src="https://img.shields.io/badge/version-0.0.1-blue"></img></a>
 </p>
-<h3 text-align="center">README-template</h3>
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -34,18 +33,16 @@
   </ol>
 </details>
 
-### About 
------
+## About 
 This project uses machine learning to suggest emojis to text!
 
-### Getting started
+## Getting started
 ------
 
-#### Prerequisites
+### Prerequisites
 - python 3.10
 
-#### Installation
-
+### Installation
 
 ```bash
 python -m venv venv
@@ -55,18 +52,24 @@ pip install .
 
 The virtual environment (venv) needs to be activated each time you work with the project.
 
+### Plugins for development
+
+This project uses the following tools for development which might require extensions in your editor.
+- flake8
+- black
+- mypy
 
 #### Usage
 ------
 ```bash
-pip install .
-emojify
+pip install . 
+emojify  # Runs the emojify/main.py file
 ```
 
-#### Other
+#### Data
 Data in the data folder taken from [Kaggle](https://www.kaggle.com/datasets/praveengovi/emotions-dataset-for-nlp)
 
-### Team
+## Team
 ------
 <!--INSERT PICTURE OF TEAM-->
 <div text-align="center">
@@ -74,21 +77,21 @@ Data in the data folder taken from [Kaggle](https://www.kaggle.com/datasets/prav
 </div>
 
 Right to left: [@example](https://github.com/Jonrodtang)    [@example](https://github.com/Jonrodtang)    [@example](https://github.com/Jonrodtang)    [@example](https://github.com/Jonrodtang)  
-#### Leader(s):
+### Leader(s):
 - [Ulrik Røsby](https://github.com/ulrik2204)
 - [Øystein Kvandal](https://github.com/)
 
-#### Team members:
+### Team members:
 - [Example exampleson](https://github.com/)
 -  [Examplette examplesen](https://github.com/)
 - [Examplar examples](https://github.com/)
 
-### License
+## License
 ------
 Distributed under the MIT License. See `LICENSE` for more information.
 
 
 
-### Credits
+## Credits
 ------
 Template by [@JonRodtang](https://github.com/Jonrodtang) for  [@CogitoNTNU](https://github.com/CogitoNTNU)  <p text-align="right">(<a href="#top">back to top</a>)</p>
