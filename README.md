@@ -63,6 +63,9 @@ pip install .
 emojify
 ```
 
+#### Other
+Data in the data folder taken from [Kaggle](https://www.kaggle.com/datasets/praveengovi/emotions-dataset-for-nlp)
+
 ### Team
 ------
 <!--INSERT PICTURE OF TEAM-->
