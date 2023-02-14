@@ -79,7 +79,7 @@ Data in the data folder taken from [Kaggle](https://www.kaggle.com/datasets/prav
 Right to left: [@example](https://github.com/Jonrodtang)    [@example](https://github.com/Jonrodtang)    [@example](https://github.com/Jonrodtang)    [@example](https://github.com/Jonrodtang)  
 ### Leader(s):
 - [Ulrik Røsby](https://github.com/ulrik2204)
-- [Øystein Kvandal](https://github.com/)
+- [Øystein Kvandal](https://github.com/oystkva)
 
 ### Team members:
 - [Example exampleson](https://github.com/)
