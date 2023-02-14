@@ -85,12 +85,11 @@ Right to left: [@example](https://github.com/Jonrodtang)    [@example](https://g
 - [Example exampleson](https://github.com/)
 -  [Examplette examplesen](https://github.com/)
 - [Examplar examples](https://github.com/)
+- [Mari Horpestad](https://github.com/mhorp)
 
 ## License
 ------
 Distributed under the MIT License. See `LICENSE` for more information.
-
-
 
 ## Credits
 ------
