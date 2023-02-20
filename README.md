@@ -82,7 +82,7 @@ Right to left: [@example](https://github.com/Jonrodtang)    [@example](https://g
 - [Øystein Kvandal](https://github.com/)
 
 ### Team members:
-- [Example exampleson](https://github.com/)
+- [Amalie Johansen Vik](https://github.com/amaliejvik)
 -  [Examplette examplesen](https://github.com/)
 - [Examplar examples](https://github.com/)
 
