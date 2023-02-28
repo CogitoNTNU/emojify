@@ -86,6 +86,8 @@ Right to left: [@example](https://github.com/Jonrodtang)    [@example](https://g
 -  [Examplette examplesen](https://github.com/)
 - [Examplar examples](https://github.com/)
 - [Mari Horpestad](https://github.com/mhorp)
+- [Fredrik Hellevang](https://github.com/bfc105)
+- [Sondre Tveiten](https://github.com/sondretve)
 
 ## License
 ------
