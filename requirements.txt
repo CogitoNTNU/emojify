@@ -7,3 +7,4 @@ matplotlib>=3.7.0
 nltk==3.8.1
 spacy==3.5.0
 scikit-learn==1.2.1
+wandb>=0.13.11
