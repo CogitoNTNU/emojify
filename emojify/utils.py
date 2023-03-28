@@ -1,9 +1,11 @@
-import pathlib  # type: ignore
+import pathlib
 import random
+from typing import TypeVar, Union
 
 import matplotlib.pyplot as plt  # type: ignore
 import numpy as np
 import torch
+import torch.nn as nn
 
 # Allow torch/cudnn to optimize/analyze the input/output shape of convolutions
 # To optimize forward/backward pass.
@@ -21,15 +23,18 @@ def set_seed(seed: int):
     random.seed(seed)
 
 
-def to_cuda(elements):
+T = TypeVar("T", bound=Union[nn.Module, tuple[torch.Tensor], list[torch.Tensor]])
+
+
+def to_cuda(elements: T) -> T:
     """
     Transfers every object in elements to GPU VRAM if available.
     elements can be a object or list/tuple of objects
     """
     if torch.cuda.is_available():
         if type(elements) == tuple or type(elements) == list:
-            return [x.cuda() for x in elements]
-        return elements.cuda()
+            return [x.cuda() for x in elements]  # type: ignore
+        return elements.cuda()  # type: ignore
     return elements
 
 
@@ -97,8 +102,8 @@ def plot_loss(
     for i in range(num_points):
         points = loss[i * npoints_to_average : (i + 1) * npoints_to_average]
         step = global_steps[i * npoints_to_average + npoints_to_average // 2]
-        mean_loss.append(np.mean(points))
-        loss_std.append(np.std(points))
+        mean_loss.append(np.mean(points))  # type: ignore
+        loss_std.append(np.std(points))  # type: ignore
         steps.append(step)
     plt.plot(steps, mean_loss, label=f"{label} (mean over {npoints_to_average} steps)")
     plt.fill_between(
