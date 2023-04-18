@@ -16,6 +16,8 @@ class SentimentDataset(Dataset):
         # load that to dataloader
         input_data = pd.DataFrame()
         for file in os.listdir(folder):
+            if not file.endswith(".txt"):
+                continue
             data = pd.read_csv(f"{folder}/{file}", sep=";", names=["text", "label"])
             input_data = pd.concat([input_data, data], ignore_index=True)
         input_data["text"] = input_data["text"].str.split()  # type: ignore

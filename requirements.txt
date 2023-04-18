@@ -12,4 +12,5 @@ wandb>=0.13.11
 seaborn==0.12.2
 data-science-types==0.2.23
 emoji==2.2.0
+sentence-transformers==2.2.2
 # pytorch

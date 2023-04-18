@@ -1,10 +1,12 @@
 import collections
 import pathlib
 import time
+from typing import Any, Callable, Self, TypeVar
 
 import matplotlib.pyplot as plt
 import torch
-from sklearn.metrics import accuracy_score, classification_report  # type: ignore
+from sklearn.metrics import accuracy_score  # type: ignore
+from sklearn.metrics import classification_report
 from torch.utils.data import DataLoader
 from tqdm import tqdm  # type: ignore
 
@@ -15,6 +17,7 @@ def compute_loss_and_accuracy(
     dataloader: DataLoader,
     model: torch.nn.Module,
     loss_criterion: torch.nn.modules.loss._Loss,
+    modify_model_output: Callable[[torch.Tensor], torch.Tensor] = lambda x: x,
 ):
     """
     Computes the average loss and the accuracy over the whole dataset
@@ -34,7 +37,8 @@ def compute_loss_and_accuracy(
             X_batch = utils.to_cuda(X_batch)
             Y_batch = utils.to_cuda(Y_batch)
             # Forward pass the images through our model
-            output_probs = model(X_batch)
+            out = model(X_batch)
+            output_probs = modify_model_output(out)
             average_loss += loss_criterion(output_probs, Y_batch)
             accuracy += (output_probs.argmax(dim=1) == Y_batch).float().sum() / len(
                 Y_batch
@@ -42,6 +46,9 @@ def compute_loss_and_accuracy(
         average_loss /= len(dataloader)
         accuracy /= len(dataloader)
     return average_loss.cpu().float(), accuracy.cpu().float()  # type: ignore
+
+
+TModel = TypeVar("TModel", bound=torch.nn.Module)
 
 
 # TODO: Add support for early stopping using validation dataset
@@ -52,8 +59,10 @@ class NNManager:
         learning_rate: float,
         early_stop_count: int,
         epochs: int,
-        model: torch.nn.Module,
+        model: TModel,
         dataloaders: tuple[DataLoader, DataLoader, DataLoader],
+        call_model: Callable[[TModel, Any], Any] = lambda model, x: model(x),
+        modify_model_output: Callable[[torch.Tensor], torch.Tensor] = lambda x: x,
     ):
         """
         Initialize our trainer class.
@@ -70,10 +79,12 @@ class NNManager:
         self.model: torch.nn.Module = model
         # Transfer model to GPU VRAM, if possible.
         self.model = utils.to_cuda(self.model)
+        self.modify_model_output = modify_model_output
+        self.call_model = call_model
         print(self.model)
 
         # Define our optimizer. SGD = Stochastich Gradient Descent
-        self.optimizer = torch.optim.SGD(self.model.parameters(), self.learning_rate)  # type: ignore # noqa
+        self.optimizer = torch.optim.Adam(self.model.parameters(), self.learning_rate)  # type: ignore # noqa
 
         # Load our dataset
         self.dataloader_train, self.dataloader_val, self.dataloader_test = dataloaders
@@ -99,7 +110,10 @@ class NNManager:
         """
         self.model.eval()  # type: ignore
         validation_loss, validation_acc = compute_loss_and_accuracy(
-            self.dataloader_val, self.model, self.loss_criterion
+            self.dataloader_val,
+            self.model,
+            self.loss_criterion,
+            self.modify_model_output,
         )
         self.validation_history["loss"][self.global_step] = validation_loss
         self.validation_history["accuracy"][self.global_step] = validation_acc
@@ -151,8 +165,10 @@ class NNManager:
         Y_batch = utils.to_cuda(Y_batch)
 
         # Perform the forward pass
-        predictions = self.model(X_batch)  # type: ignore
+        out = self.call_model(self.model, X_batch)
+        predictions = self.modify_model_output(out)
         # Compute the cross entropy loss for the batch
+        print("pred, ", predictions.size(), Y_batch.size())
         loss = self.loss_criterion(predictions, Y_batch)
         # Backpropagation
         loss.backward()

@@ -1,0 +1,321 @@
+{
+    "object_type": "UserTweetRaw",
+    "download_datetime": "2023-03-21T16:28:46.028396+01:00",
+    "raw_value": {
+        "__typename": "Tweet",
+        "rest_id": "742796925729157122",
+        "has_birdwatch_notes": false,
+        "core": {
+            "user_results": {
+                "result": {
+                    "__typename": "User",
+                    "id": "VXNlcjo1NzQ4MTMxMTc=",
+                    "rest_id": "574813117",
+                    "affiliates_highlighted_label": {},
+                    "legacy": {
+                        "created_at": "Tue May 08 21:39:42 +0000 2012",
+                        "default_profile": true,
+                        "default_profile_image": false,
+                        "description": "My boyfriends keeper! rest easy baby I love you. #longlivedre \u2764\ufe0f\ud83d\ude2a",
+                        "entities": {
+                            "description": {
+                                "urls": []
+                            }
+                        },
+                        "fast_followers_count": 0,
+                        "favourites_count": 806,
+                        "followers_count": 579,
+                        "friends_count": 309,
+                        "has_custom_timelines": false,
+                        "is_translator": false,
+                        "listed_count": 0,
+                        "location": ".",
+                        "media_count": 105,
+                        "name": "\u2648\ufe0f Bink \u2648\ufe0f",
+                        "normal_followers_count": 579,
+                        "pinned_tweet_ids_str": [
+                            "824821875025072129"
+                        ],
+                        "profile_banner_url": "https://pbs.twimg.com/profile_banners/574813117/1619187061",
+                        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1385597073962250242/ZK78tavr_normal.jpg",
+                        "profile_interstitial_type": "",
+                        "protected": false,
+                        "screen_name": "_Kee_Indieee_",
+                        "statuses_count": 5671,
+                        "translator_type": "none",
+                        "verified": false,
+                        "withheld_in_countries": []
+                    },
+                    "super_follow_eligible": false,
+                    "super_followed_by": false,
+                    "super_following": false
+                }
+            }
+        },
+        "quoted_status_result": {
+            "result": {
+                "__typename": "Tweet",
+                "rest_id": "742340776370135040",
+                "has_birdwatch_notes": false,
+                "core": {
+                    "user_results": {
+                        "result": {
+                            "__typename": "User",
+                            "id": "VXNlcjoyODQ0MjA5OA==",
+                            "rest_id": "28442098",
+                            "affiliates_highlighted_label": {},
+                            "legacy": {
+                                "created_at": "Thu Apr 02 23:02:18 +0000 2009",
+                                "default_profile": false,
+                                "default_profile_image": false,
+                                "description": "\"Scooch\" -- The 1st single from #ImTheProblem AVAILABLE NOW! Stream and download here: https://t.co/9D3i8yPq0b",
+                                "entities": {
+                                    "description": {
+                                        "urls": [
+                                            {
+                                                "display_url": "lnk.to/ScoochKM",
+                                                "expanded_url": "https://lnk.to/ScoochKM",
+                                                "url": "https://t.co/9D3i8yPq0b",
+                                                "indices": [
+                                                    87,
+                                                    110
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "url": {
+                                        "urls": [
+                                            {
+                                                "display_url": "allmonstersarehuman.com",
+                                                "expanded_url": "https://www.allmonstersarehuman.com",
+                                                "url": "https://t.co/j7BsSn2dk7",
+                                                "indices": [
+                                                    0,
+                                                    23
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                "fast_followers_count": 0,
+                                "favourites_count": 1335,
+                                "followers_count": 1766126,
+                                "friends_count": 5159,
+                                "has_custom_timelines": true,
+                                "is_translator": false,
+                                "listed_count": 2299,
+                                "location": "In my pink bubble",
+                                "media_count": 12223,
+                                "name": "K. Michelle",
+                                "normal_followers_count": 1766126,
+                                "pinned_tweet_ids_str": [
+                                    "1637837450767654912"
+                                ],
+                                "profile_banner_url": "https://pbs.twimg.com/profile_banners/28442098/1679012511",
+                                "profile_image_url_https": "https://pbs.twimg.com/profile_images/1636523155824025601/EW4j1Zn9_normal.jpg",
+                                "profile_interstitial_type": "",
+                                "protected": false,
+                                "screen_name": "kmichelle",
+                                "statuses_count": 91561,
+                                "translator_type": "none",
+                                "url": "https://t.co/j7BsSn2dk7",
+                                "verified": true,
+                                "withheld_in_countries": []
+                            },
+                            "super_follow_eligible": false,
+                            "super_followed_by": false,
+                            "super_following": false
+                        }
+                    }
+                },
+                "legacy": {
+                    "created_at": "Mon Jun 13 13:00:07 +0000 2016",
+                    "conversation_id_str": "742340776370135040",
+                    "display_text_range": [
+                        0,
+                        104
+                    ],
+                    "entities": {
+                        "media": [
+                            {
+                                "display_url": "pic.twitter.com/dvdAEGiMwO",
+                                "expanded_url": "https://twitter.com/kmichelle/status/742340776370135040/photo/1",
+                                "id_str": "742340772406657024",
+                                "indices": [
+                                    105,
+                                    128
+                                ],
+                                "media_url_https": "https://pbs.twimg.com/tweet_video_thumb/Ck1S_9mWgAADhN0.jpg",
+                                "type": "photo",
+                                "url": "https://t.co/dvdAEGiMwO",
+                                "sizes": {
+                                    "large": {
+                                        "h": 214,
+                                        "w": 294,
+                                        "resize": "fit"
+                                    },
+                                    "medium": {
+                                        "h": 214,
+                                        "w": 294,
+                                        "resize": "fit"
+                                    },
+                                    "small": {
+                                        "h": 214,
+                                        "w": 294,
+                                        "resize": "fit"
+                                    },
+                                    "thumb": {
+                                        "h": 150,
+                                        "w": 150,
+                                        "resize": "crop"
+                                    }
+                                },
+                                "original_info": {
+                                    "height": 214,
+                                    "width": 294
+                                }
+                            }
+                        ],
+                        "user_mentions": [],
+                        "urls": [
+                            {
+                                "display_url": "smarturl.it/AintYouVideo",
+                                "expanded_url": "http://smarturl.it/AintYouVideo",
+                                "url": "https://t.co/FeoLcPd9l1",
+                                "indices": [
+                                    79,
+                                    102
+                                ]
+                            }
+                        ],
+                        "hashtags": [
+                            {
+                                "indices": [
+                                    49,
+                                    57
+                                ],
+                                "text": "AintYou"
+                            }
+                        ],
+                        "symbols": []
+                    },
+                    "extended_entities": {
+                        "media": [
+                            {
+                                "display_url": "pic.twitter.com/dvdAEGiMwO",
+                                "expanded_url": "https://twitter.com/kmichelle/status/742340776370135040/photo/1",
+                                "id_str": "742340772406657024",
+                                "indices": [
+                                    105,
+                                    128
+                                ],
+                                "media_key": "16_742340772406657024",
+                                "media_url_https": "https://pbs.twimg.com/tweet_video_thumb/Ck1S_9mWgAADhN0.jpg",
+                                "type": "animated_gif",
+                                "url": "https://t.co/dvdAEGiMwO",
+                                "ext_media_availability": {
+                                    "status": "Available"
+                                },
+                                "sizes": {
+                                    "large": {
+                                        "h": 214,
+                                        "w": 294,
+                                        "resize": "fit"
+                                    },
+                                    "medium": {
+                                        "h": 214,
+                                        "w": 294,
+                                        "resize": "fit"
+                                    },
+                                    "small": {
+                                        "h": 214,
+                                        "w": 294,
+                                        "resize": "fit"
+                                    },
+                                    "thumb": {
+                                        "h": 150,
+                                        "w": 150,
+                                        "resize": "crop"
+                                    }
+                                },
+                                "original_info": {
+                                    "height": 214,
+                                    "width": 294
+                                },
+                                "video_info": {
+                                    "aspect_ratio": [
+                                        147,
+                                        107
+                                    ],
+                                    "variants": [
+                                        {
+                                            "bitrate": 0,
+                                            "content_type": "video/mp4",
+                                            "url": "https://video.twimg.com/tweet_video/Ck1S_9mWgAADhN0.mp4"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "favorite_count": 86,
+                    "favorited": false,
+                    "full_text": "These dudes mad cause they really ain't you. \n\n\u2728 #AintYou video is out NOW! \u2728\n\nhttps://t.co/FeoLcPd9l1 \ud83c\udfa5 https://t.co/dvdAEGiMwO",
+                    "is_quote_status": false,
+                    "lang": "en",
+                    "possibly_sensitive": false,
+                    "possibly_sensitive_editable": true,
+                    "quote_count": 0,
+                    "reply_count": 2,
+                    "retweet_count": 1428,
+                    "retweeted": false,
+                    "user_id_str": "28442098",
+                    "id_str": "742340776370135040"
+                }
+            }
+        },
+        "legacy": {
+            "created_at": "Tue Jun 14 19:12:42 +0000 2016",
+            "conversation_id_str": "742796925729157122",
+            "display_text_range": [
+                0,
+                42
+            ],
+            "entities": {
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "display_url": "twitter.com/kmichelle/stat\u2026",
+                        "expanded_url": "https://twitter.com/kmichelle/status/742340776370135040",
+                        "url": "https://t.co/kQCUHXqZFT",
+                        "indices": [
+                            19,
+                            42
+                        ]
+                    }
+                ],
+                "hashtags": [],
+                "symbols": []
+            },
+            "favorite_count": 0,
+            "favorited": false,
+            "full_text": "You better work \ud83d\ude0d\ud83d\ude0d https://t.co/kQCUHXqZFT",
+            "is_quote_status": true,
+            "lang": "en",
+            "possibly_sensitive": false,
+            "possibly_sensitive_editable": true,
+            "quote_count": 0,
+            "quoted_status_id_str": "742340776370135040",
+            "quoted_status_permalink": {
+                "url": "https://t.co/kQCUHXqZFT",
+                "expanded": "https://twitter.com/kmichelle/status/742340776370135040",
+                "display": "twitter.com/kmichelle/stat\u2026"
+            },
+            "reply_count": 0,
+            "retweet_count": 0,
+            "retweeted": false,
+            "user_id_str": "574813117",
+            "id_str": "742796925729157122"
+        }
+    }
+}
