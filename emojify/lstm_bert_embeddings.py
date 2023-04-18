@@ -13,30 +13,32 @@ from emojify.nn_manager import NNManager
 # forward as well
 
 
-class ExampleNet(nn.Module):
+class LSTMNet(nn.Module):
     def __init__(
         self,
         embedding_dim: int,
         hidden_dim: int,
         label_count: int,
     ):
-        super(ExampleNet, self).__init__()
+        super(LSTMNet, self).__init__()
         self.hidden_dim = hidden_dim
 
         # The LSTM takes word embeddings as inputs, and outputs hidden states
         # with dimensionality hidden_dim.
         # emd
-        self.relu = nn.ReLU()
         self.lstm = nn.LSTM(embedding_dim, hidden_dim, num_layers=2, batch_first=True)
-        self.linear1 = nn.Linear(hidden_dim, hidden_dim * 4)
-        # The linear layer that maps from hidden state space to tag space
-        self.hidden2tag = nn.Linear(hidden_dim * 4, label_count)
+        self.seq = nn.Sequential(
+            nn.ReLU(),
+            nn.Linear(hidden_dim, hidden_dim * 4),
+            nn.ReLU(),
+            nn.Linear(hidden_dim * 4, label_count),
+        )
 
     def forward(self, sentence_embeddings):
         lstm_out, *_ = self.lstm(sentence_embeddings)
-        out = self.relu(self.linear1(lstm_out.view(len(sentence_embeddings), -1)))
-        tag_space = self.relu(self.hidden2tag(out))
-        tag_scores = F.log_softmax(tag_space, dim=1)
+        view = lstm_out.view(len(sentence_embeddings), -1)
+        seq_out = self.seq(view)
+        tag_scores = F.log_softmax(seq_out, dim=1)
         return tag_scores
 
 
@@ -51,7 +53,7 @@ def main():
     learning_rate = 5e-3
     early_stop_count = 4
     train, val, test = load_bert_embeddings_data(batch_size)
-    model = ExampleNet(embedding_dim, hidden_dim, 6)
+    model = LSTMNet(embedding_dim, hidden_dim, 6)
     nn_manager = NNManager(
         batch_size, learning_rate, early_stop_count, epochs, model, (train, val, test)
     )
