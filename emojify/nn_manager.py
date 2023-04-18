@@ -1,7 +1,7 @@
 import collections
 import pathlib
 import time
-from typing import Any, Callable, Self, TypeVar
+from typing import Any, Callable, TypeVar
 
 import matplotlib.pyplot as plt
 import torch
@@ -168,7 +168,6 @@ class NNManager:
         out = self.call_model(self.model, X_batch)
         predictions = self.modify_model_output(out)
         # Compute the cross entropy loss for the batch
-        print("pred, ", predictions.size(), Y_batch.size())
         loss = self.loss_criterion(predictions, Y_batch)
         # Backpropagation
         loss.backward()
@@ -245,7 +244,8 @@ class NNManager:
             for X_batch, Y_batch in tqdm(self.dataloader_test):
                 X_batch = utils.to_cuda(X_batch)
                 Y_batch = utils.to_cuda(Y_batch)
-                output = self.model(X_batch)  # type: ignore
+                out = self.call_model(self.model, X_batch)  # type: ignore
+                output = self.modify_model_output(out)
                 pred = output.argmax(
                     dim=1
                 )  # get the index of the max log-probability  # noqa
