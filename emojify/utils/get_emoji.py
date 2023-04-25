@@ -1,6 +1,5 @@
 import torch
 
-import emojify.utils.nn_utils as utils
 from emojify.embeddings.transformer_embeddings import get_transformer_embeddings
 from emojify.models.lstm_net import LSTMNet
 
