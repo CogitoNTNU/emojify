@@ -18,6 +18,7 @@ def compute_loss_and_accuracy(
     model: torch.nn.Module,
     loss_criterion: torch.nn.modules.loss._Loss,
     modify_model_output: Callable[[torch.Tensor], torch.Tensor] = lambda x: x,
+    try_gpu: bool = True,
 ):
     """
     Computes the average loss and the accuracy over the whole dataset
@@ -34,8 +35,9 @@ def compute_loss_and_accuracy(
     with torch.no_grad():
         for X_batch, Y_batch in dataloader:
             # Transfer images/labels to GPU VRAM, if possible
-            X_batch = utils.to_cuda(X_batch)
-            Y_batch = utils.to_cuda(Y_batch)
+            if try_gpu:
+                X_batch = utils.to_cuda(X_batch)
+                Y_batch = utils.to_cuda(Y_batch)
             # Forward pass the images through our model
             out = model(X_batch)
             output_probs = modify_model_output(out)
@@ -63,6 +65,7 @@ class NNManager:
         dataloaders: tuple[DataLoader, DataLoader, DataLoader],
         call_model: Callable[[TModel, Any], Any] = lambda model, x: model(x),
         modify_model_output: Callable[[torch.Tensor], torch.Tensor] = lambda x: x,
+        try_gpu: bool = True,
     ):
         """
         Initialize our trainer class.
@@ -78,9 +81,10 @@ class NNManager:
         # Initialize the model
         self.model: torch.nn.Module = model
         # Transfer model to GPU VRAM, if possible.
-        self.model = utils.to_cuda(self.model)
+        self.model = utils.to_cuda(self.model) if try_gpu else self.model
         self.modify_model_output = modify_model_output
         self.call_model = call_model
+        self.try_gpu = try_gpu
         print(self.model)
 
         # Define our optimizer. SGD = Stochastich Gradient Descent
@@ -161,8 +165,9 @@ class NNManager:
         # X_batch is the CIFAR10 images. Shape: [batch_size, 3, 32, 32]
         # Y_batch is the CIFAR10 image label. Shape: [batch_size]
         # Transfer images / labels to GPU VRAM, if possible
-        X_batch = utils.to_cuda(X_batch)
-        Y_batch = utils.to_cuda(Y_batch)
+        if self.try_gpu:
+            X_batch = utils.to_cuda(X_batch)
+            Y_batch = utils.to_cuda(Y_batch)
 
         # Perform the forward pass
         out = self.call_model(self.model, X_batch)
@@ -242,8 +247,9 @@ class NNManager:
         self.model.eval()
         with torch.no_grad():
             for X_batch, Y_batch in tqdm(self.dataloader_test):
-                X_batch = utils.to_cuda(X_batch)
-                Y_batch = utils.to_cuda(Y_batch)
+                if self.try_gpu:
+                    X_batch = utils.to_cuda(X_batch)
+                    Y_batch = utils.to_cuda(Y_batch)
                 out = self.call_model(self.model, X_batch)  # type: ignore
                 output = self.modify_model_output(out)
                 pred = output.argmax(

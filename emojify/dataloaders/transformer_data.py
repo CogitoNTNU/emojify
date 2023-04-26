@@ -1,13 +1,11 @@
-import os
-
 import numpy as np
 import pandas as pd
 import torch
-from torch.utils.data import DataLoader, Dataset, random_split
+from torch.utils.data import DataLoader, random_split
 from tqdm import tqdm
 
-from emojify.text_utils import NumpyPreloadedDataset
 from emojify.embeddings.transformer_embeddings import get_transformer_embeddings
+from emojify.utils.text_utils import NumpyPreloadedDataset
 
 
 def prepare_sequence(seq: list[str], to_ix: dict):
