@@ -4,7 +4,7 @@ from emojify.embeddings.transformer_embeddings import get_transformer_embeddings
 from emojify.models.lstm_net import LSTMNet
 
 # class_to_idx = {"anger": 0, "fear": 1, "joy": 2, "love": 3, "sadness": 4, "surprise": 5}
-emoji_to_idx = {"😠": 0, "😨": 1, "😂": 2, "😍": 3, "😢": 4, "😮": 5}
+emoji_to_idx = {"😠": 0, "😨": 1, "😄": 2, "😍": 3, "😢": 4, "😮": 5}
 idx_to_emoji = {v: k for k, v in emoji_to_idx.items()}
 state_dict = torch.load("best_checkpoints/best_model.ckpt")
 embedding_dim = 384  # should probably be 32
