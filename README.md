@@ -59,11 +59,11 @@ This project uses the following tools for development which might require extens
 - black
 - mypy
 
-#### Usage
+#### Running server
 ------
 ```bash
 pip install . 
-emojify  # Runs the emojify/main.py file
+uvicorn emojify.server.serve:app --reload # Runs the emojify/main.py file
 ```
 
 #### Data
